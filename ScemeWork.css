@@ -32,12 +32,8 @@
 }
 
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 1700px;
+    margin: 0 auto;
 }
 
 .flex {
@@ -274,7 +270,6 @@
         transform: translateY(-50%);
         width: 20px;
         height: 20px;
-        background: #d20606;
         border-radius: 50%;
     }
 
@@ -739,7 +734,6 @@
   box-sizing:border-box;
 }
 .site-footer .wrap{
-  max-width:1400px;
   margin:0 auto;
   display:flex;
   align-items:flex-start;

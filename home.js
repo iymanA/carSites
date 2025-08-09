@@ -46,3 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.header-center nav');
+    if(navToggle && nav){
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        nav.style.display = nav.classList.contains('open') ? 'block' : '';
+      });
+    }
+
+    // simple FAQ toggle (поддерживает .faq-item.open)
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        // если клик в кнопке — ок, иначе тоже работает
+        item.classList.toggle('open');
+      });
+    });
+  });

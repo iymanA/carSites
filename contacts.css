@@ -9,7 +9,7 @@
 
         /* General Container */
         .container {
-            max-width: 1200px;
+            max-width: 1700px;
             margin: 0 auto;
             padding: 0 15px;
         }
@@ -194,7 +194,7 @@
         }
         .contact-info-box {
             border-radius: 20px;
-            background-color: var(--gray);
+            background-color: whitesmoke;
             padding: 30px 20px;
             padding-bottom: 5px;
         }
@@ -228,8 +228,6 @@
             width: auto;
             flex: 1;
             background-color: var(--accent);
-        }
-        .contact-list {
         }
         @media (min-width: 768px) {
             .contact-list {
