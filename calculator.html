@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="calculator.css">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="__next">
+        <header class="header">
+            <div class="container flex items-center justify-between">
+                <div class="flex items-center space-x-[10px]">
+                    <button class="mr-[10px] xl-hidden">
+                        <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1.5H21" stroke="#D20606" stroke-width="1.5" stroke-linecap="round"></path>
+                            <path d="M1 9.5H21" stroke="#D20606" stroke-width="1.5" stroke-linecap="round"></path>
+                            <path d="M1 17.5H21" stroke="#D20606" stroke-width="1.5" stroke-linecap="round"></path>
+                        </svg>
+                    </button>
+                    <a class="inline-flex whitespace-nowrap text-[14px] font-black xl-text-[30px]" href="/">
+                        <span class="transition-all duration-300 text-dark">AUTO</span><span class="text-accent transition-all duration-300">BRO-TRADE</span>
+                    </a>
+                </div>
+                <nav class="mx-auto hidden space-x-[50px] font-medium transition-all duration-300 xl-inline-flex">
+                    <a class="nav-link text-black" href="/about">О компании</a>
+                    <a class="nav-link text-black" href="/schema">Схема работы</a>
+                    <a class="nav-link text-black text-shadow-red text-red-600" href="/calculator">Калькулятор</a>
+                    <a class="nav-link text-black" href="/contacts">Контакты</a>
+                </nav>
+                <div class="inline-flex items-center space-x-[10px] text-white transition-all duration-300 xl-space-x-[40px]">
+                    <a target="_blank" class="text-[12px] font-black transition-all duration-300 hover-text-accent xl-text-[18px] text-black active-text-black" href="tel:79954344777">+7 995 434-47-77</a>
+                    <a target="_blank" class="group inline-flex h-[35px] min-w-[35px] max-w-[35px] items-center justify-center rounded-full bg-accent transition-all duration-300 hover-bg-gray active-bg-gray xl-h-[50px] xl-min-w-[50px] xl-max-w-[50px]" href="https://wa.me/79954344777">
+                        <svg width="17" height="17" viewBox="0 0 17 17" class="transition-all duration-300 xl-h-[25px] xl-w-[25px]" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.50206 0.25H8.49794C3.94909 0.25 0.25 3.95012 0.25 8.5C0.25 10.3047 0.831625 11.9774 1.82059 13.3355L0.792438 16.4004L3.96353 15.3867C5.26806 16.2509 6.82422 16.75 8.50206 16.75C13.0509 16.75 16.75 13.0488 16.75 8.5C16.75 3.95116 13.0509 0.25 8.50206 0.25ZM13.3025 11.9C13.1035 12.4621 12.3136 12.9282 11.6835 13.0643C11.2524 13.1561 10.6893 13.2293 8.79391 12.4435C6.36944 11.4391 4.80813 8.97541 4.68644 8.81556C4.56991 8.65572 3.70675 7.51103 3.70675 6.32716C3.70675 5.14328 4.30797 4.56681 4.55031 4.31931C4.74934 4.11616 5.07831 4.02334 5.39388 4.02334C5.49597 4.02334 5.58775 4.0285 5.67025 4.03262C5.91259 4.04294 6.03428 4.05738 6.19413 4.43997C6.39316 4.9195 6.87784 6.10337 6.93559 6.22506C6.99437 6.34675 7.05316 6.51175 6.97066 6.67159C6.89331 6.83659 6.82525 6.90981 6.70356 7.05006C6.58187 7.19031 6.46637 7.29756 6.34469 7.44812C6.23331 7.57909 6.1075 7.71934 6.24775 7.96169C6.388 8.19887 6.87269 8.98984 7.58631 9.62509C8.50722 10.4449 9.25384 10.7069 9.52094 10.8182C9.71997 10.9008 9.95716 10.8812 10.1026 10.7265C10.2872 10.5274 10.5151 10.1974 10.7471 9.87259C10.9121 9.63953 11.1204 9.61066 11.339 9.69316C11.5618 9.7705 12.7405 10.3532 12.9828 10.4738C13.2252 10.5955 13.385 10.6533 13.4438 10.7553C13.5016 10.8574 13.5016 11.337 13.3025 11.9Z" class="fill-white transition-all duration-300 group-hover-fill-accent group-active-fill-dark"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main class="flex-1 pb-[60px] pt-[75px] lg-pb-[120px] lg-pt-[115px]">
+            <div class="container">
+                <p class="mb-[30px] text-[28px] uppercase leading-[140%] lg-mb-[40px] lg-text-[70px]"><strong class="font-black">Рассчет стоимости</strong> автомобиля</p>
+                <form class="relative space-y-[30px] overflow-hidden rounded-[20px] bg-[#23241F] px-[20px] py-[23px] text-left text-[14px] text-white lg-py-[70px] lg-pl-[70px] lg-pr-[50px] lg-text-[18px] xl-flex xl-space-y-0">
+                    <img alt="Фон" loading="lazy" width="2000" height="530" decoding="async" data-nimg="1" class="absolute inset-0 h-full w-full object-cover" src="./image/calculator.jpg" style="color: transparent;">
+                    <div class="relative space-y-[20px] xl-mr-[30px] xl-min-w-[350px] xl-max-w-[567px] xl-flex-auto xl-space-y-[30px]">
+                        <label class="block space-y-[15px]">
+                            <span class="font-extrabold">Введите курс валюты</span>
+                            <div class="relative h-[45px] rounded-[30px] bg-[#353434] lg-h-[50px]">
+                                <input type="number" name="rate" class="h-full w-full border-0 bg-transparent px-[30px] outline-none placeholder-text-[#585858]" placeholder="Введите цену">
+                                <span class="absolute right-[30px] top-1/2 -translate-y-1/2 font-bold">₽</span>
+                            </div>
+                        </label>
+                        <label class="block space-y-[15px]">
+                            <span class="font-extrabold">Цена на аукционе</span>
+                            <div class="relative h-[45px] rounded-[30px] bg-[#353434] lg-h-[50px]">
+                                <input type="number" name="auctionPrice" class="h-full w-full border-0 bg-transparent px-[30px] outline-none placeholder-text-[#585858]" placeholder="Введите цену">
+                                <span class="absolute right-[30px] top-1/2 -translate-y-1/2 font-bold">₽</span>
+                            </div>
+                        </label>
+                        <label class="block space-y-[15px]">
+                            <span class="font-extrabold">Пошлина + УС*</span>
+                            <div class="relative h-[45px] rounded-[30px] bg-[#353434] lg-h-[50px]">
+                                <input type="number" name="tax" class="h-full w-full border-0 bg-transparent px-[30px] outline-none placeholder-text-[#585858]" placeholder="Введите пошлину">
+                                <span class="absolute right-[30px] top-1/2 -translate-y-1/2 font-bold">₽</span>
+                            </div>
+                        </label>
+                        <div>* Рассчитать можно на<a class="text-accent underline" target="_blank" href="http://www.tks.ru/auto/calc"><span class="ml-2">таможенном калькуляторе.</span></a></div>
+                    </div>
+                    <div class="relative xl-min-w-[250px] 2xl-mx-auto 2xl-min-w-[387px] 2xl-max-w-[387px]">
+                        <p class="mb-[20px] font-extrabold">Доп. услуги</p>
+                        <div class="flex flex-col space-y-[10px]">
+                            <label for="item-0" class="inline-flex items-center space-x-[15px] transition-all duration-300">
+                                <span class="relative">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" class="transition-all duration-300 fill-transparent" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.5" y="0.5" width="24" height="24" rx="1.5" stroke="#D20606"></rect>
+                                    </svg>
+                                    <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 scale-150 opacity-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <input id="item-0" type="checkbox" class="sr-only" name="additionProps" value="10000">
+                                <span>Перегон в ТК</span>
+                            </label>
+                            <label for="item-1" class="inline-flex items-center space-x-[15px] transition-all duration-300">
+                                <span class="relative">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" class="transition-all duration-300 fill-transparent" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.5" y="0.5" width="24" height="24" rx="1.5" stroke="#D20606"></rect>
+                                    </svg>
+                                    <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 scale-150 opacity-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <input id="item-1" type="checkbox" class="sr-only" name="additionProps" value="5000">
+                                <span>Перегон на стоянку</span>
+                            </label>
+                            <label for="item-2" class="inline-flex items-center space-x-[15px] transition-all duration-300">
+                                <span class="relative">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" class="transition-all duration-300 fill-transparent" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.5" y="0.5" width="24" height="24" rx="1.5" stroke="#D20606"></rect>
+                                    </svg>
+                                    <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 scale-150 opacity-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <input id="item-2" type="checkbox" class="sr-only" name="additionProps" value="1000">
+                                <span>Отправка документов экспресс-почтой</span>
+                            </label>
+                            <label for="item-3" class="inline-flex items-center space-x-[15px] transition-all duration-300">
+                                <span class="relative">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" class="transition-all duration-300 fill-transparent" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.5" y="0.5" width="24" height="24" rx="1.5" stroke="#D20606"></rect>
+                                    </svg>
+                                    <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 scale-150 opacity-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <input id="item-3" type="checkbox" class="sr-only" name="additionProps" value="50000">
+                                <span>Терминал ГЛОНАСС</span>
+                            </label>
+                            <label for="item-4" class="inline-flex items-center space-x-[15px] transition-all duration-300">
+                                <span class="relative">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" class="transition-all duration-300 fill-transparent" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.5" y="0.5" width="24" height="24" rx="1.5" stroke="#D20606"></rect>
+                                    </svg>
+                                    <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 scale-150 opacity-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <input id="item-4" type="checkbox" class="sr-only" name="additionProps" value="40000">
+                                <span>Покупка с OnePrice</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="relative space-y-[20px] rounded-[20px] bg-[#353434] px-[15px] py-[30px] xl-ml-[30px] xl-max-w-[380px] 2xl-ml-[30px] 2xl-min-w-[380px] 2xl-max-w-[461px] 2xl-space-y-[33px] 2xl-p-[60px] 2xl-pr-[55px]">
+                        <p class="text-[24px] font-black lg-text-[30px]">0 ₽</p>
+                        <p class="text-[14px] lg-text-[17px]">В расчете указана приблизительная стоимость автомобиля до г. Уссурийск. Точную стоимость вы можете уточнить у нашего специалиста</p>
+                        <button type="button" class="group relative inline-flex w-full min-w-[200px] items-center justify-center whitespace-nowrap rounded-full text-center text-[14px] font-extrabold outline-none transition-all duration-300 active-bg-gray active-text-dark pl-[20px] lg-text-[18px] text-[14px] justify-start bg-accent text-white max-h-[45px] min-h-[45px] px-[10px] py-[5px] lg-min-h-[50px] lg-text-[18px]">
+                            Узнать точную стоимость
+                            <span class="absolute right-[10px] top-1/2 inline-flex h-[35px] w-[35px] -translate-y-1/2 items-center justify-center rounded-full bg-white transition-all duration-300 group-active-bg-dark">
+                                <svg class="-rotate-45 fill-accent transition-all duration-300 group-hover-rotate-0 group-active-fill-white" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.4571 8.18721C16.8476 7.79669 16.8476 7.16352 16.4571 6.773L10.0931 0.409035C9.70262 0.0185103 9.06946 0.0185103 8.67893 0.409035C8.28841 0.799559 8.28841 1.43272 8.67893 1.82325L14.3358 7.4801L8.67893 13.137C8.28841 13.5275 8.28841 14.1606 8.67893 14.5512C9.06946 14.9417 9.70262 14.9417 10.0931 14.5512L16.4571 8.18721ZM0.25 8.4801H15.75V6.4801L0.25 6.4801L0.25 8.4801Z"></path>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+         <footer class="site-footer">
+  <div class="wrap">
+    <div class="sf-left">
+      <div class="sf-logo"><span class="white">AUTO</span><span class="red">BRO-TRADE</span></div>
+      <a class="sf-privacy" href="#">Политика конфиденциальности</a>
+    </div>
+
+    <nav class="sf-center" aria-label="footer navigation">
+      <a href="#">О компании</a>
+      <a href="#">Калькулятор</a>
+      <a href="#">Схема работы</a>
+      <a href="#">Контакты</a>
+    </nav>
+
+    <div class="sf-right">
+      <div class="sf-socials" aria-hidden="false">
+        <!-- Telegram -->
+        <a href="#" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M21 3L3 10.5l3.5 1.2L18 6l-9.5 9.5L9 21l3-6 9-12z"/>
+          </svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="#" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.672.149-.198.297-.768.967-.942 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.607.134-.133.298-.347.447-.52.149-.173.198-.297.298-.495.099-.198.05-.371-.025-.52-.074-.148-.672-1.618-.922-2.22-.242-.58-.487-.5-.672-.51l-.573-.01c-.198 0-.52.074-.792.371s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487  .709.306 1.26.489 1.692.626.71.226 1.356.194 1.866.118.57-.085 1.758-.718 2.006-1.412.248-.695.248-1.29.173-1.412-.074-.121-.272-.198-.57-.347z"/>
+            <path d="M12 2C6.48 2 2 6.48 2 12c0 2.11.649 4.06 1.763 5.693L2 22l4.43-1.164C8.11 21.277 10.01 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" fill-opacity=".15"/>
+          </svg>
+        </a>
+        <!-- YouTube -->
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 15l5.2-3L10 9v6zM21.5 7.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C14.7 3.5 12 3.5 12 3.5h-.1s-2.7 0-6.5.4c-.5 0-1.4.1-2.2 1-.6.7-.8 2.3-.8 2.3S2 9 2 10.8v2.4C2 15 2.7 16.8 2.7 16.8s.2 1.6.8 2.3c.8.9 1.8.9 2.3 1 1.6.2 6.3.4 6.3.4s2.7 0 6.5-.4c.5 0 1.4-.1 2.2-1 .6-.7.8-2.3.8-2.3s.7-2.7.7-4.5V10.8c0-1.8-.7-3.6-.7-3.6z"/>
+          </svg>
+        </a>
+        <!-- VK -->
+        <a href="#" aria-label="VK">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12c0 4.4 3.17 8.07 7.36 8.87.54.1.73-.24.73-.53 0-.26-.01-.95-.01-1.86-2.99.65-3.62-1.44-3.62-1.44-.49-1.25-1.2-1.58-1.2-1.58-.98-.67.07-.66.07-.66 1.08.08 1.65 1.11 1.65 1.11.96 1.65 2.52 1.17 3.14.9.1-.7.37-1.17.68-1.44-2.39-.27-4.9-1.2-4.9-5.35 0-1.18.42-2.14 1.11-2.9-.11-.27-.48-1.36.11-2.83 0 0 .91-.29 2.98 1.11a10.3 10.3 0 0 1 2.71-.36c.92.01 1.85.12 2.71.36 2.07-1.4 2.98-1.11 2.98-1.11.59 1.47.22 2.56.11 2.83.69.76 1.11 1.72 1.11 2.9 0 4.16-2.52 5.08-4.92 5.34.38.33.72.98.72 1.98 0 1.43-.01 2.58-.01 2.93 0 .29.19.64.74.53C18.83 20.07 22 16.4 22 12c0-5.52-4.48-10-10-10z"/>
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.2A4.8 4.8 0 1 0 16.8 13 4.8 4.8 0 0 0 12 8.2zm6.5-2.7a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
+            <path d="M12 10.5A1.5 1.5 0 1 1 10.5 12 1.5 1.5 0 0 1 12 10.5z" fill="#fff"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="sf-address">
+        Уссурийск, ул. Краснознаменная, д.198<br>
+        "B", 2 этаж, офис 207<br>
+        <a class="sf-email" href="mailto:autobro_trade@bk.ru">autobro_trade@bk.ru</a>
+      </div>
+
+      <a class="sf-phone" href="tel:+79954344777">+7 995 434-47-77</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+    const rateInput = form.querySelector('input[name="rate"]');
+    const auctionPriceInput = form.querySelector('input[name="auctionPrice"]');
+    const taxInput = form.querySelector('input[name="tax"]');
+    const additionProps = form.querySelectorAll('input[name="additionProps"]');
+    const totalCostElement = form.querySelector('.text-[24px]');
+
+    const calculateTotalCost = () => {
+        let total = 0;
+
+        const rate = parseFloat(rateInput.value) || 0;
+        const auctionPrice = parseFloat(auctionPriceInput.value) || 0;
+        const tax = parseFloat(taxInput.value) || 0;
+
+        total += auctionPrice * rate;
+        total += tax;
+
+        additionProps.forEach(prop => {
+            if (prop.checked) {
+                total += parseFloat(prop.value);
+            }
+        });
+
+        totalCostElement.textContent = `${total.toLocaleString()} ₽`;
+    };
+
+    form.addEventListener('input', calculateTotalCost);
+    form.addEventListener('change', calculateTotalCost);
+
+    calculateTotalCost();
+});
+    </script>
+</body>
+</html>
