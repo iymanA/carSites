@@ -5,11 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Главная</title>
   <link rel="stylesheet" href="./home.css">
+  <link rel="stylesheet" href="./responsive.css">
 </head>
 <body>
   <header>
     <div class="container">
       <div class="header-left">
+        <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+          <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1.5H21" stroke="#D20606" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M1 9.5H21" stroke="#D20606" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M1 17.5H21" stroke="#D20606" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+        </button>
         <h1>AUTO<span class="headerlogo">BRO-TRADE</span></h1>
       </div>
       <div class="header-center">
@@ -308,98 +316,6 @@
   </div>
 </footer>
 <script src="./home.js"></script>
-<script>
-  // Аккордеон + reveal + match-height CTA
-document.addEventListener('DOMContentLoaded', () => {
-  const items = Array.from(document.querySelectorAll('.faq-item'));
-  const toggles = Array.from(document.querySelectorAll('.faq-toggle'));
-  const revealTargets = [...document.querySelectorAll('.faq-item, .cta-bg, .faq-title')];
-  const ctaBg = document.querySelector('.cta-bg');
-  const faqLeft = document.querySelector('.faq-left');
-
-  // init: set max-height for opened items
-  function setInitialHeights() {
-    items.forEach(i => {
-      const a = i.querySelector('.faq-a');
-      if (i.classList.contains('open')) {
-        a.style.maxHeight = a.scrollHeight + 'px';
-        i.querySelector('.faq-q').setAttribute('aria-expanded','true');
-      } else {
-        a.style.maxHeight = '0px';
-        i.querySelector('.faq-q').setAttribute('aria-expanded','false');
-      }
-    });
-  }
-
-  setInitialHeights();
-
-  // click handlers: clicking question OR toggle toggles item (single open)
-  function closeAll() {
-    items.forEach(i => {
-      i.classList.remove('open');
-      const a = i.querySelector('.faq-a');
-      a.style.maxHeight = 0;
-      i.querySelector('.faq-q').setAttribute('aria-expanded','false');
-    });
-  }
-
-  items.forEach(item => {
-    const q = item.querySelector('.faq-q');
-    const a = item.querySelector('.faq-a');
-
-    const toggleFunc = () => {
-      const isOpen = item.classList.contains('open');
-      closeAll();
-      if (!isOpen) {
-        item.classList.add('open');
-        q.setAttribute('aria-expanded','true');
-        // force reflow then set height
-        a.style.maxHeight = a.scrollHeight + 'px';
-      }
-      // after toggle, adjust CTA height
-      matchCTA();
-    };
-
-    q.addEventListener('click', toggleFunc);
-    const btnToggle = item.querySelector('.faq-toggle');
-    if (btnToggle) btnToggle.addEventListener('click', (e) => { e.preventDefault(); toggleFunc(); });
-  });
-
-  // reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(en => {
-      if (en.isIntersecting) {
-        en.target.classList.add('revealed');
-        io.unobserve(en.target);
-      }
-    });
-  }, {threshold: 0.12});
-
-  revealTargets.forEach(t => io.observe(t));
-
-  // match CTA height to left column (visible height) — run on load and resize and when accordion changes
-  function matchCTA() {
-    if (!ctaBg || !faqLeft) return;
-    // compute height of left content (faq-left)
-    const leftRect = faqLeft.getBoundingClientRect();
-    // try to match CTA min-height to left's scrollHeight (prefers content height)
-    const h = Math.max(260, faqLeft.scrollHeight);
-    ctaBg.style.minHeight = h + 'px';
-  }
-  // initial and on resize
-  matchCTA();
-  let rt;
-  window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { setInitialHeights(); matchCTA(); }, 120); });
-
-  // ensure after images load CTA dims correctly
-  const img = document.querySelector('.cta-img');
-  if (img) {
-    if (!img.complete) {
-      img.addEventListener('load', () => { matchCTA(); });
-    }
-  }
-});
-
-</script>
+<script src="./site.js"></script>
 </body>
 </html>

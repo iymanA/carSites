@@ -5,12 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AUTOBRO-TRADE — Расчет стоимости автомобиля (клон)</title>
   <link rel="stylesheet" href="./calculator.css">
+  <link rel="stylesheet" href="./responsive.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
     <div class="container">
       <div class="header-left">
+        <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+          <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1.5H21" stroke="#D20606" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M1 9.5H21" stroke="#D20606" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M1 17.5H21" stroke="#D20606" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+        </button>
         <h1>AUTO<span class="headerlogo">BRO-TRADE</span></h1>
       </div>
       <div class="header-center">
@@ -73,9 +81,10 @@
       </aside>
 
     </div>
-  </main>
-
-  <script>
+     </main>
+ 
+   <script src="./site.js"></script>
+   <script>
     const rate = document.getElementById('rate');
     const auction = document.getElementById('auction');
     const fees = document.getElementById('fees');

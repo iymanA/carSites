@@ -1,0 +1,105 @@
+/* Global responsive overrides */
+
+/* Make containers fluid with a max width */
+.container {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* Home and Calculator headers: mobile menu */
+.menu-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Home header specific nav list */
+.header-center nav ul {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 992px) {
+  /* Show hamburger on small screens for pages without Tailwind-like header */
+  .menu-toggle { display: inline-flex; }
+
+  /* Position header as anchor for dropdowns */
+  header { position: relative; }
+
+  /* Collapse nav to dropdown for Home/Calculator */
+  .header-center nav ul {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 16px !important;
+    background: rgba(0, 0, 0, 0.92);
+    padding: 16px;
+    z-index: 50;
+  }
+  .header-center nav ul.open { display: flex; }
+
+  /* Tidy header layout */
+  header .container { gap: 12px; }
+  .header-right { display: none; }
+
+  /* Home hero text sizing */
+  h2 { font-size: clamp(24px, 5vw, 48px) !important; margin-top: 80px !important; }
+  header p { font-size: clamp(14px, 3.8vw, 20px) !important; }
+
+  /* Why-us cards already stack at 768px; ensure padding */
+  .why-us { padding: 40px 0 !important; }
+
+  /* Work scheme cards: stack on mobile */
+  .scheme-cards, .scheme-cards-bottom { flex-direction: column !important; gap: 20px !important; }
+  .scheme-card { flex: 1 1 100% !important; }
+
+  /* Stats grid falls to 1 column by default; ensure spacing */
+  .stats__inner { padding: 32px 0 !important; }
+
+  /* FAQ layout */
+  .faq-bottom { flex-direction: column !important; }
+  .faq-contact-box { width: 100% !important; max-width: 100% !important; min-height: 240px !important; }
+}
+
+/* Smaller phones */
+@media (max-width: 600px) {
+  .header-center ul a { font-size: 18px !important; }
+  .why-us-header-bottom { font-size: 32px !important; }
+  .scheme-header-title { font-size: 32px !important; }
+}
+
+/* About / Contacts / ScemeWork mobile nav handling */
+@media (max-width: 1279px) {
+  .header.mobile-open .nav-main,
+  .header.mobile-open .main-nav {
+    display: flex !important;
+  }
+  .nav-main, .main-nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: saturate(150%) blur(4px);
+    padding: 16px;
+    display: none; /* default hidden on mobile until toggled */
+    flex-direction: column;
+    gap: 16px !important;
+    z-index: 60;
+  }
+  .nav-main a, .main-nav a { color: #000 !important; }
+}
+
+/* Fix hardcoded widths */
+.faq-contact-box { width: auto; max-width: 850px; }
+.cta-box { width: 100% !important; max-width: 700px; height: auto !important; }
