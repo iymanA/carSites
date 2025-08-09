@@ -1,3 +1,10 @@
+@font-face {
+    font-family: swiper-icons;
+    src: url("data:application/font-woff;charset=utf-8;base64, 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");
+    font-weight: 400;
+    font-style: normal
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,7 +14,7 @@
 }
 
 .container{
-    width: 1300px;
+    width: 1700px;
     margin: 0 auto;
 }
 
@@ -447,166 +454,211 @@ p {
 }
 
 .faq {
-    padding: 80px 0;
-    background-color: #fff;
+  padding: 80px 0;
+  background-color: #fff;
 }
 
 .faq-content {
-    align-items: flex-start;
-    gap: 30px;
-}
-
-.faq-questions {
-    display: flex;
-}
-
-.faq-bottom {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .faq-title {
-    font-family: "Mulish", sans-serif;
-    font-size: 48px;
-    font-weight: 800;
-    color: #000;
-    text-transform: uppercase;
-    margin-bottom: 40px;
+  font-family: "Mulish", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: #000;
+  text-transform: uppercase;
+  margin-bottom: 0;
 }
 
 .faq-title span {
-    font-weight: 400;
-    color: #D20606;
-    font-size: 24px;
+  font-weight: 400;
+  color: #D20606;
+  font-size: 24px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .faq-title h2 {
-    font-weight: 800;
+  font-weight: 800;
+  margin: 0;
+  color: #000;
+  font-size: 73px;
 }
 
 .faq-title h2 span {
-    font-weight: 300;
-    color: #000;
-    font-size: 72px;
+  font-weight: 300;
+  color: #000;
+  font-size: 72px;
+}
+
+.faq-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 .faq-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
+  flex: 1;
 }
 
 .faq-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #f9f9f9;
-    padding: 15px 20px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column  ;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
+.faq-item-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  span{
+    width: 80%;
+  }
+}
+
+
 .faq-item:hover {
-    background-color: #e0e0e0;
+  background-color: #e5e7eb;
 }
 
 .faq-item span {
-    font-family: "Mulish", sans-serif;
-    font-size: 16px;
-    color: #333;
+  font-family: "Mulish", sans-serif;
+  font-size: 16px;
+  color: #333;
 }
 
 .faq-toggle {
-    background-color: #D20606;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: #D20606;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+  background-color: #a00505;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+  transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px; 
+  opacity: 1;
 }
 
 .faq-contact {
-    flex: 0 0 40%;
-    max-width: 40%;
+  flex: 0 0 40%;
+  max-width: 40%;
 }
 
 .faq-contact-box {
-    background: url('./image/bg-image-3.7facdab4.jpg') center/cover no-repeat;
-    color: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    position: relative;
-    height: 100%;
-    width: 50%;
+  background: url('./image/bg-image-3.7facdab4.jpg') center/cover no-repeat;
+  color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  height: 100%;
+  min-height: 300px;
+  width: 600px;
 }
 
 .faq-contact-box h3 {
-    font-family: "Mulish", sans-serif;
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 15px;
+  font-family: "Mulish", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 15px;
 }
 
 .faq-contact-box p {
-    font-family: "Mulish", sans-serif;
-    font-size: 14px;
-    margin-bottom: 20px;
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .faq-phone {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .faq-button {
-    display: inline-block;
-    background-color: #D20606;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-family: "Mulish", sans-serif;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  background-color: #D20606;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-family: "Mulish", sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .faq-button:hover {
-    background-color: #a00505;
+  background-color: #a00505;
 }
 
 .faq-car-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.2;
-    z-index: -1;
-    border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  z-index: -1;
+  border-radius: 15px;
 }
 
 @media (max-width: 768px) {
-    .faq-content {
-        flex-direction: column;
-        align-items: center;
-    }
+  .faq-content {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .faq-questions {
-        max-width: 100%;
-    }
+  .faq-bottom {
+    flex-direction: column;
+    gap: 40px;
+  }
 
-    .faq-contact {
-        max-width: 100%;
-        margin-top: 30px;
-    }
+  .faq-contact {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .faq-contact-box {
+    width: 100%;
+    min-height: 250px;
+  }
 }
-
