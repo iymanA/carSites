@@ -177,17 +177,57 @@
           </div>
         </div>
       </div>
-      <div class="faq-section">
-        <div class="container faq-container">
-          <div class="faq-header">
-            <p class="faq-subtitle">FAQ</p>
-            <p class="faq-title">ответы <strong class="faq-title-bold">на популярные вопросы</strong></p>
-          </div>
-          <div class="faq-cards">
-            
+       <section class="faq">
+    <div class="container">
+      <div class="faq-content">
+        <div class="faq-title">
+          <span>FAQ</span>
+          <h2><span>ОТВЕТЫ</span> НА ПОПУЛЯРНЫЕ ВОПРОСЫ</h2>
+        </div>
+        <div class="faq-bottom">
+          <ul class="faq-list">
+            <li class="faq-item">
+              <div class="faq-item-top">
+                <span>Могу ли я отменить покупку автомобиля?</span>
+                <button class="faq-toggle">+</button>
+              </div>
+              <div class="faq-answer">
+                Да, вы можете отменить покупку до момента оплаты автомобиля. Условия возврата депозита уточняйте у
+                менеджера.
+              </div>
+            </li>
+            <li class="faq-item">
+              <div class="faq-item-top">
+                <span>Могу ли я сделать ставки на несколько автомобилей, но купить только один из них?</span>
+                <button class="faq-toggle">+</button>
+              </div>
+              <div class="faq-answer">
+                Да, вы можете участвовать в ставках на несколько автомобилей, но купить только один. После выбора
+                автомобиля остальные ставки аннулируются, а депозит возвращается при соблюдении условий.
+              </div>
+            </li>
+            <li class="faq-item">
+              <div class="faq-item-top">
+                <span>Какие ваши гарантии? Как мне убедиться в вашей надежности?</span>
+                <button class="faq-toggle">+</button>
+              </div>
+              <div class="faq-answer">
+                Мы предоставляем гарантию по договору, включая возврат депозита при отказе до оплаты. Надежность
+                подтверждается опытом более 5 лет и отзывами 2000+ клиентов. Все детали уточняйте у менеджера.
+              </div>
+            </li>
+          </ul>
+          <div class="faq-contact-box">
+            <h3>ОСТАЛИСЬ ВОПРОСЫ?</h3>
+            <p>Напишите нам или позвоните, и мы поможем решить вашу задачу</p>
+            <p class="faq-phone">+7 995 434-47-77</p>
+            <a href="#" class="faq-button">Задать вопрос</a>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
     </main>
    <!-- Подключи в <head>: <link rel="stylesheet" href="footer.css"> -->
 <footer class="site-footer">
@@ -252,5 +292,56 @@
 </footer>
     <div id="next-route-announcer__" aria-live="assertive" aria-atomic="true"></div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const toggleBtn = item.querySelector('.faq-toggle');
+    const answer = item.querySelector('.faq-answer');
+
+    // Скрываем ответ при инициализации
+    answer.style.maxHeight = '0px';
+    answer.style.opacity = '0';
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = item.classList.contains('active');
+
+      // Закрываем все
+      faqItems.forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.faq-answer').style.maxHeight = '0px';
+        i.querySelector('.faq-answer').style.opacity = '0';
+      });
+
+      // Открываем только выбранный
+      if (!isActive) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        answer.style.opacity = '1';
+      }
+    });
+
+    // Клик по вопросу тоже открывает
+    item.querySelector('span').addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleBtn.click();
+    });
+  });
+
+  // Клик вне FAQ закрывает все
+  document.addEventListener('click', (e) => {
+    faqItems.forEach(item => {
+      if (!item.contains(e.target)) {
+        item.classList.remove('active');
+        item.querySelector('.faq-answer').style.maxHeight = '0px';
+        item.querySelector('.faq-answer').style.opacity = '0';
+      }
+    });
+  });
+});
+  </script>
 </body>
 </html>
