@@ -76,6 +76,7 @@
             gap: 50px;
             font-weight: 500;
             transition: all 0.3s;
+            font-size: 20px;
         }
         @media (min-width: 1280px) {
             .main-nav {
@@ -87,7 +88,6 @@
         }
         .main-nav .current-page {
             color: var(--red-600);
-            text-shadow: 0 0 5px var(--red-600);
         }
         .contact-info {
             display: inline-flex;
@@ -572,3 +572,4 @@
   }
   .sf-right{align-items:flex-start;text-align:left;}
 }
+
