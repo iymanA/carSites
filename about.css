@@ -746,3 +746,328 @@ body {
   }
   .sf-right{align-items:flex-start;text-align:left;}
 }
+
+/* ========== Добавленные минимальные стили для мобильного сайдбара/оверлея ========== */
+
+/* overlay (скрытый по умолчанию) */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .22s ease, visibility .22s;
+  z-index: 50;
+}
+
+/* sidebar (скрыт слева) */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 300px;
+  max-width: 85%;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: 2px 0 18px rgba(0,0,0,0.12);
+  z-index: 60;
+  transition: left .26s ease;
+  padding: 18px;
+  overflow-y: auto;
+}
+
+/* кнопка закрытия внутри сайдбара */
+.close-sidebar{
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  padding: 6px;
+  cursor: pointer;
+  float: right;
+}
+
+/* меню внутри сайдбара */
+.mobile-nav { margin-top: 16px; display:flex; flex-direction:column; gap:8px; }
+.mobile-nav-link { padding:10px 8px; border-radius:6px; text-decoration:none; color:#111; }
+
+/* состояния при открытом меню */
+.mobile-sidebar.open { left: 0; }
+.mobile-overlay.show { visibility: visible; opacity: 1; }
+
+/* По умолчанию скрываем бургер (оставляем поведение, которое у тебя было) */
+.menu-button { display: none; }
+
+/* Показываем бургер и включаем sidebar только в диапазоне 500..1000px */
+@media (min-width: 500px) and (max-width: 1000px) {
+  .menu-button { display: inline-flex; }
+  .nav-main { display: none !important; }
+}
+
+/* ниже 500 — не вмешиваемся (твой прежний дизайн остаётся как есть) */
+/* ==========================
+   FIX: FAQ — мобильная версия
+   ========================== */
+
+/* Глобальный guard: если на мобильном заголовок слишком большой — уменьшаем */
+@media (max-width: 768px) {
+  /* уменьшаем слишком крупный заголовок FAQ, чтобы он не перекрывал контент */
+  .faq-title { font-size: 18px; }
+  .faq-title span { font-size: 16px; }
+  .faq-title h2 { font-size: 28px !important; line-height: 1.06 !important; margin-bottom: 8px; }
+
+  /* Переупорядочивание блока FAQ: столбец вместо строки */
+  .faq-bottom { flex-direction: column; gap: 18px; }
+
+  /* Вопросы: текст слева и читаемый размер */
+  .faq-item {
+    align-items: flex-start;
+    text-align: left;
+    padding: 14px;
+    width: 100%;
+    background: #f8f8f8;
+  }
+
+  .faq-item span {
+    display: block;
+    font-size: 16px;
+    color: #111;
+  }
+
+  /* Ответы: делаем текст тёмным и видимым при открытии.
+     Поддерживаем как старую логику с .active, так и логику с атрибутом hidden. */
+  .faq-answer {
+    color: #222;
+    font-size: 15px;
+    margin-top: 10px;
+    line-height: 1.45;
+    transition: max-height 0.28s ease, opacity 0.22s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    display: block; /* чтобы transition работал */
+  }
+
+  /* если у .faq-item есть класс active — показываем ответ */
+  .faq-item.active .faq-answer {
+    max-height: 1000px; /* достаточно большое значение для плавного раскрытия */
+    opacity: 1;
+  }
+
+  /* поддержка варианта, когда JS использует атрибут hidden */
+  .faq-answer[hidden] { display: none !important; } /* скрыть, если hidden */
+  .faq-answer:not([hidden]) {
+    /* если hidden убран — обеспечим видимость и переходы */
+    max-height: 1000px;
+    opacity: 1;
+    display: block;
+  }
+
+  /* Кнопка открыть/закрыть — чуть крупнее и справа */
+  .faq-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  /* Контактная карточка: делаем overlay над фоном, чтобы текст был читаем */
+  .faq-contact-box {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 18px;
+    min-height: 180px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  /* затемняющий слой поверх фонового изображения — чтобы текст был читаем */
+  .faq-contact-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.46);
+    z-index: 0;
+    border-radius: 12px;
+  }
+  .faq-contact-box > * { position: relative; z-index: 2; } /* текст над затемнением */
+
+  .faq-button { display: block; width: 100%; box-sizing: border-box; text-align: center; }
+
+  /* уменьшаем отступы футера внутри этой секции */
+  .faq { padding: 28px 12px; }
+}
+
+/* Дополнительно: для планшетов уменьшаем гигантский десктопный размер */
+@media (max-width: 1024px) {
+  .faq-title h2 { font-size: 38px !important; line-height: 1.02; }
+}
+/* === На экранах <= 500px: скрываем логотип, показываем и фиксируем бургер === */
+@media (max-width: 500px) {
+  /* Скрываем только логотип (оставляем телефон/контакты, если нужны) */
+  .logo-link {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Скрываем десктопную навигацию (чтобы не мешала) */
+  .nav-main {
+    display: none !important;
+  }
+
+  /* Показываем и фиксируем бургер в левом верхнем углу */
+  .menu-button {
+    display: inline-flex !important;
+    position: fixed !important;
+    left: 12px !important;
+    top: 12px !important;
+    width: 48px !important;
+    height: 48px !important;
+    padding: 8px !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.22);
+    z-index: 3000 !important; /* над всем */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    pointer-events: auto !important;
+  }
+
+  /* Уменьшаем отступ хедера, чтобы бургер не скрывался */
+  .header {
+    padding: 6px 0 !important;
+  }
+
+  /* Контейнер — чтобы не было горизонтального скролла на узких экранах */
+  .container {
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 0 14px !important;
+  }
+
+  /* Устанавливаем порядок z-index: оверлей ниже, сайдбар выше, бургер выше всех */
+  .mobile-overlay { z-index: 2000 !important; }
+  .mobile-sidebar { z-index: 2500 !important; }
+}
+/* ---------- Схема работы (красная пунктирная линия + бейджи) ---------- */
+.work-steps { padding: 70px 0; position: relative; background: #0f0f0f; color: #fff; }
+.work-steps .steps-wrap { position: relative; }
+
+/* тонкая пунктирная линия через всю ширину контейнера */
+.work-steps .connector {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60px; /* положение линии относительно бейджей */
+  height: 0;
+  border-top: 4px dashed rgba(210,6,6,0.95);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* маленький круг в конце линии (правый) */
+.work-steps .connector::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: -6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #D20606;
+  box-shadow: 0 0 0 6px rgba(210,6,6,0.08);
+}
+
+/* Сетка шагов: 2 колонки, строки */
+.work-steps .steps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px 60px;
+  position: relative;
+  z-index: 2; /* чтобы элементы были над линией */
+  align-items: start;
+}
+
+/* каждый шаг */
+.work-steps .step {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* бейдж (пельменка) */
+.work-steps .step-badge {
+  background: #D20606;
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight: 800;
+  display: inline-block;
+  font-size: 20px;
+  box-shadow: 0 9px 0 rgba(0,0,0,0.12);
+  margin-bottom: 6px;
+  position: relative;
+  min-width: 110px;
+  text-align: center;
+}
+
+/* небольшой красный маркер у бейджа (левый и правый немного отличаются) */
+.work-steps .step-badge::before {
+  content: "";
+  position: absolute;
+  top: 48%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #D20606;
+  box-shadow: 0 0 0 6px rgba(210,6,6,0.06);
+}
+
+/* для левых бейджей маркер справа, для правых - слева (чтобы выглядело как продолжение линии) */
+.step-left .step-badge::before { right: -48px; }
+.step-right .step-badge::before { left: -48px; }
+
+/* контент шага (текст) */
+.work-steps .step-body h3 {
+  font-size: 28px;
+  margin: 0 0 8px;
+  color: #fff;
+  font-weight: 900;
+}
+.work-steps .step-body p {
+  margin: 0;
+  color: #dcdcdc;
+  line-height: 1.45;
+}
+
+/* выравнивание бейджей по вертикали над линией */
+.step-left .step-badge,
+.step-right .step-badge {
+  /* чтобы бейдж казался расположенным на линии - поднимаем вверх */
+  margin-top: -12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  .work-steps .connector { top: 72px; border-top-width: 3px; }
+  .work-steps .step-badge { font-size: 18px; padding: 10px 20px; }
+  .step-left .step-badge::before,
+  .step-right .step-badge::before { right: -36px; left: -36px; width: 12px; height: 12px; }
+}
+
+@media (max-width: 720px) {
+  .work-steps { padding: 36px 0; }
+  .work-steps .steps-grid { grid-template-columns: 1fr; gap: 26px; }
+  .work-steps .connector { top: 40px; }
+  /* бейджи по центру на мобильных */
+  .step { flex-direction: column; }
+  .step-left .step-badge::before,
+  .step-right .step-badge::before { display: none; }
+  .work-steps .step-badge { margin: 0 auto 8px auto; }
+}
